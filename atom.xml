@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Leonard`s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-05-09T03:08:36.341Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Leonard</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello 2020</title>
+    <link href="http://yoursite.com/2020/05/02/Hello-2020/"/>
+    <id>http://yoursite.com/2020/05/02/Hello-2020/</id>
+    <published>2020-05-02T11:42:28.000Z</published>
+    <updated>2020-05-09T03:08:36.341Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;博客开通许久一直没动笔，一直被拖延、懒惰打败，在2020我要改变这一切。&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
