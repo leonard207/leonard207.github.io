@@ -22,13 +22,13 @@
 
   <meta name="description" content="做个有趣的人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
+<meta property="og:title" content="关于">
 <meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="Leonard&#96;s Blog">
 <meta property="og:description" content="做个有趣的人">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-02T08:30:25.000Z">
-<meta property="article:modified_time" content="2020-05-09T03:08:36.341Z">
+<meta property="article:modified_time" content="2020-05-20T06:12:12.110Z">
 <meta property="article:author" content="Leonard">
 <meta name="twitter:card" content="summary">
 
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>about | Leonard`s Blog
+  <title>关于 | Leonard`s Blog
 </title>
   
 
@@ -171,7 +171,7 @@
     <div class="post-block" lang="zh-CN">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">about
+<h1 class="post-title" itemprop="name headline">关于
 </h1>
 
 <div class="post-meta">
@@ -185,7 +185,9 @@
       
       
       <div class="post-body">
-          <h1 id="做个有趣的人"><a href="#做个有趣的人" class="headerlink" title="做个有趣的人"></a>做个有趣的人</h1>
+          <hr>
+<center> 做个有趣的人</center>
+
       </div>
       
       
@@ -200,7 +202,6 @@
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -247,7 +248,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#做个有趣的人"><span class="nav-number">1.</span> <span class="nav-text">做个有趣的人</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -342,92 +342,6 @@
 
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"CSwSGk52jqedSEbYN00E4Cic-MdYXbMMI","app_key":"SVJHy4LieAxKO5VHOs66e6jz","server_url":null,"security":true};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
       </div>
